@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ALPuzzle</string>
+    <string name="view">View</string>
+    <string name="change">Change the image</string>
+
+    <string name="level">Select the level</string>
+    <string name="rows">Rows</string>
+    <string name="columns">Columns</string>
+
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="read_permission">We need the permission to select an image from your gallery, it is necessary.</string>
+    <string name="cannot_user_app">You cannot use this app without granting reading permissions.</string>
+
+    <string name="confirmation">Confirmation</string>
+    <string name="current_image">You have a selected image, do you want to proceed?</string>
+    <string name="no_image">You have not selected any image.</string>
+
+    <string-array name="levels">
+        <item>Basic</item>
+        <item>Medium</item>
+        <item>Advanced</item>
+    </string-array>
+</resources>
