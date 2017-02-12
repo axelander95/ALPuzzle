@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cannot_user_app">No puedes utilizar esta aplicación si no aceptas los permisos requeridos</string>
+    <string name="change">Cambiar la imagen</string>
+    <string name="columns">Columnas</string>
+    <string name="confirmation">Confirmación</string>
+    <string name="congratulations">Felicitaciones, lo has logrado.</string>
+    <string name="current_image">Tienes una imagen seleccionada, deseas continuar?</string>
+    <string name="level">Selecciona el nivel</string>
+    <string name="no_image">No has seleccionado imagen alguna</string>
+    <string name="read_permission">Necesitamos que nos des permisos para seleccionar imágenes de tu dispositivo</string>
+    <string name="rows">Filas</string>
+    <string name="view">Vista previa</string>
+
+    <string-array name="levels">
+        <item>Básico</item>
+        <item>Medio</item>
+        <item>Avanzado</item>
+    </string-array>
+</resources>

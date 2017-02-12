@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ALPuzzle</string>
+    <string name="app_name" translatable="false">ALPuzzle</string>
     <string name="view">View</string>
     <string name="change">Change the image</string>
 
@@ -16,6 +16,8 @@
     <string name="confirmation">Confirmation</string>
     <string name="current_image">You have a selected image, do you want to proceed?</string>
     <string name="no_image">You have not selected any image.</string>
+
+    <string name="congratulations">Congratulations, you have done it!</string>
 
     <string-array name="levels">
         <item>Basic</item>

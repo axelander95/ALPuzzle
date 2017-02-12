@@ -1,5 +1,6 @@
 package com.kimerasoft_ec.alpuzzle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,7 +20,6 @@ public class ConfigurationActivity extends AppCompatActivity {
     public static final int BASIC = 3;
     public static final int MEDIUM = 4;
     public static final int ADVANCED = 6;
-    public static int selectedItem;
     public static String LEVEL_PARAM = "LEVEL";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,6 @@ public class ConfigurationActivity extends AppCompatActivity {
         initialize();
         fillLevels();
         setEvents();
-        selectedItem = -1;
     }
     private void initialize()
     {
@@ -62,7 +61,9 @@ public class ConfigurationActivity extends AppCompatActivity {
         btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectedItem = spnLevel.getSelectedItemPosition();
+                Intent intent = new Intent();
+                intent.putExtra(LEVEL_PARAM, spnLevel.getSelectedItemPosition());
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
