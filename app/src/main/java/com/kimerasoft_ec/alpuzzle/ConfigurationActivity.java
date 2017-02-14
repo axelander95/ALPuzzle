@@ -39,7 +39,7 @@ public class ConfigurationActivity extends AppCompatActivity {
     }
     private void fillLevels()
     {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_item,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), android.R.layout.simple_spinner_dropdown_item,
                 getResources().getStringArray(R.array.levels));
         spnLevel.setAdapter(adapter);
     }

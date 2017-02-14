@@ -7,4 +7,7 @@
     <item android:title="@string/view"
         android:icon="@android:drawable/ic_menu_view"
         app:showAsAction="ifRoom"  android:id="@+id/itmView" />
+    <item android:title="@string/level"
+        android:icon="@android:drawable/ic_menu_manage"
+        app:showAsAction="ifRoom"  android:id="@+id/itmConfiguration" />
 </menu>

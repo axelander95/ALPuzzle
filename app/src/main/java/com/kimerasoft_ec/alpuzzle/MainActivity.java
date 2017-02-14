@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private int level;
     private GridView grvPuzzle;
     private static final int READ_PERMISSION = 2;
-    public static Bitmap currentImage;
+    public static Bitmap currentImage, selectedImage;
     private int imageSize = 1024;
     private List<PuzzleItem> items;
     private PuzzleItemAdapter adapter;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         grvPuzzle = (GridView) findViewById(R.id.grvPuzzle);
         askFormPermissions();
         level = ConfigurationActivity.LEVEL_MEDIUM;
-        currentImage = BitmapFactory.decodeResource(getResources(), R.drawable.dbz);
+        currentImage = BitmapFactory.decodeResource(getResources(), R.drawable.algebra);
         generatePuzzle(level);
     }
 
@@ -112,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_image),
                             Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.itmConfiguration:
+                Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
+                startActivityForResult(intent, CONFIGURATION_CODE);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -132,35 +136,35 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK)
         {
-            switch (requestCode)
-            {
+            switch (requestCode) {
                 case LOAD_IMAGE:
                     selectedItem = null;
                     Uri selectedImage = data.getData();
-                    String[] filePathColumn = { MediaStore.Images.Media.DATA };
+                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
                     Cursor cursor = getContentResolver().query(selectedImage,
                             filePathColumn, null, null, null);
-                    if (cursor != null && cursor.moveToFirst())
-                    {
+                    if (cursor != null && cursor.moveToFirst()) {
                         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                         String image = cursor.getString(columnIndex);
                         cursor.close();
-                        currentImage = BitmapFactory.decodeFile(image);
+                        this.selectedImage = BitmapFactory.decodeFile(image);
                         Intent intent = new Intent(MainActivity.this, ConfigurationActivity.class);
                         startActivityForResult(intent, CONFIGURATION_CODE);
-                    }
-                    else
+                    } else
                         currentImage = null;
                     break;
                 case CONFIGURATION_CODE:
-                    if (currentImage != null)
-                    {
+                    if (currentImage != null) {
+                        if (this.selectedImage != null)
+                            currentImage = this.selectedImage;
                         level = data.getIntExtra(ConfigurationActivity.LEVEL_PARAM, 0);
                         generatePuzzle(level);
                     }
                     break;
             }
         }
+        else if (requestCode == CONFIGURATION_CODE)
+            this.selectedImage = null;
     }
     private void generatePuzzle(int n)
     {
